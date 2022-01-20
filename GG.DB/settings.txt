@@ -1,0 +1,2 @@
+﻿DarkMode=true
+AutoLogin=true
