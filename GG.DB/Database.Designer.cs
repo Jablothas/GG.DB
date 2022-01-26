@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Database));
             this.Panel_Database_Header = new System.Windows.Forms.Panel();
+            this.Btn_Reload = new System.Windows.Forms.PictureBox();
             this.Btn_Numbers = new System.Windows.Forms.Button();
             this.Btn_Input = new System.Windows.Forms.Button();
             this.Btn_Date = new System.Windows.Forms.Button();
@@ -42,15 +43,20 @@
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.Panel_Database_Header_Splitter = new System.Windows.Forms.Panel();
             this.Panel_Database = new System.Windows.Forms.Panel();
-            this.Btn_Reload = new System.Windows.Forms.PictureBox();
+            this.CheckReplays = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Panel_Database_Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Reload)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Panel_Database_Header
             // 
             this.Panel_Database_Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(36)))));
+            this.Panel_Database_Header.Controls.Add(this.label2);
+            this.Panel_Database_Header.Controls.Add(this.label1);
+            this.Panel_Database_Header.Controls.Add(this.CheckReplays);
             this.Panel_Database_Header.Controls.Add(this.Btn_Reload);
             this.Panel_Database_Header.Controls.Add(this.Btn_Numbers);
             this.Panel_Database_Header.Controls.Add(this.Btn_Input);
@@ -68,6 +74,17 @@
             this.Panel_Database_Header.Name = "Panel_Database_Header";
             this.Panel_Database_Header.Size = new System.Drawing.Size(1200, 93);
             this.Panel_Database_Header.TabIndex = 1;
+            // 
+            // Btn_Reload
+            // 
+            this.Btn_Reload.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Reload.Image")));
+            this.Btn_Reload.Location = new System.Drawing.Point(368, 38);
+            this.Btn_Reload.Name = "Btn_Reload";
+            this.Btn_Reload.Size = new System.Drawing.Size(16, 16);
+            this.Btn_Reload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Reload.TabIndex = 16;
+            this.Btn_Reload.TabStop = false;
+            this.Btn_Reload.Click += new System.EventHandler(this.Btn_Reload_Click);
             // 
             // Btn_Numbers
             // 
@@ -110,7 +127,7 @@
             this.Btn_Date.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(121)))), ((int)(((byte)(255)))));
             this.Btn_Date.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Date.Image")));
-            this.Btn_Date.Location = new System.Drawing.Point(1070, 60);
+            this.Btn_Date.Location = new System.Drawing.Point(1075, 60);
             this.Btn_Date.Name = "Btn_Date";
             this.Btn_Date.Size = new System.Drawing.Size(66, 25);
             this.Btn_Date.TabIndex = 13;
@@ -127,7 +144,7 @@
             this.Btn_Location.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Location.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(121)))), ((int)(((byte)(255)))));
             this.Btn_Location.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Location.Image")));
-            this.Btn_Location.Location = new System.Drawing.Point(931, 60);
+            this.Btn_Location.Location = new System.Drawing.Point(940, 60);
             this.Btn_Location.Name = "Btn_Location";
             this.Btn_Location.Size = new System.Drawing.Size(106, 25);
             this.Btn_Location.TabIndex = 12;
@@ -144,7 +161,7 @@
             this.Btn_Playthroughs.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Playthroughs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(121)))), ((int)(((byte)(255)))));
             this.Btn_Playthroughs.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Playthroughs.Image")));
-            this.Btn_Playthroughs.Location = new System.Drawing.Point(791, 60);
+            this.Btn_Playthroughs.Location = new System.Drawing.Point(798, 60);
             this.Btn_Playthroughs.Name = "Btn_Playthroughs";
             this.Btn_Playthroughs.Size = new System.Drawing.Size(129, 25);
             this.Btn_Playthroughs.TabIndex = 11;
@@ -191,7 +208,7 @@
             // 
             this.Label_Search.AutoSize = true;
             this.Label_Search.ForeColor = System.Drawing.Color.White;
-            this.Label_Search.Location = new System.Drawing.Point(12, 19);
+            this.Label_Search.Location = new System.Drawing.Point(12, 12);
             this.Label_Search.Name = "Label_Search";
             this.Label_Search.Size = new System.Drawing.Size(53, 16);
             this.Label_Search.TabIndex = 3;
@@ -200,7 +217,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(447, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(447, 8);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(23, 23);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -210,7 +227,7 @@
             // SearchBar
             // 
             this.SearchBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SearchBar.Location = new System.Drawing.Point(71, 15);
+            this.SearchBar.Location = new System.Drawing.Point(71, 8);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(370, 23);
             this.SearchBar.TabIndex = 1;
@@ -234,16 +251,35 @@
             this.Panel_Database.Size = new System.Drawing.Size(1200, 752);
             this.Panel_Database.TabIndex = 2;
             // 
-            // Btn_Reload
+            // CheckReplays
             // 
-            this.Btn_Reload.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Reload.Image")));
-            this.Btn_Reload.Location = new System.Drawing.Point(1172, 64);
-            this.Btn_Reload.Name = "Btn_Reload";
-            this.Btn_Reload.Size = new System.Drawing.Size(16, 16);
-            this.Btn_Reload.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Btn_Reload.TabIndex = 16;
-            this.Btn_Reload.TabStop = false;
-            this.Btn_Reload.Click += new System.EventHandler(this.Btn_Reload_Click);
+            this.CheckReplays.AutoSize = true;
+            this.CheckReplays.Location = new System.Drawing.Point(224, 40);
+            this.CheckReplays.Name = "CheckReplays";
+            this.CheckReplays.Size = new System.Drawing.Size(15, 14);
+            this.CheckReplays.TabIndex = 17;
+            this.CheckReplays.UseVisualStyleBackColor = true;
+            this.CheckReplays.CheckedChanged += new System.EventHandler(this.CheckReplays_CheckedChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(245, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 16);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "include replays";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(390, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "refresh";
             // 
             // Database
             // 
@@ -261,8 +297,8 @@
             this.Text = "Database";
             this.Panel_Database_Header.ResumeLayout(false);
             this.Panel_Database_Header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Reload)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,5 +318,8 @@
         private System.Windows.Forms.Button Btn_Input;
         private System.Windows.Forms.Button Btn_Numbers;
         private System.Windows.Forms.PictureBox Btn_Reload;
+        private System.Windows.Forms.CheckBox CheckReplays;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

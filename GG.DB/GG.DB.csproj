@@ -83,6 +83,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPlaythrough.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPlaythrough.Designer.cs">
+      <DependentUpon>AddPlaythrough.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Database.cs">
       <SubType>Form</SubType>
@@ -111,6 +117,9 @@
     </Compile>
     <Compile Include="RatingSystem.cs" />
     <Compile Include="TotalScore.cs" />
+    <EmbeddedResource Include="AddPlaythrough.resx">
+      <DependentUpon>AddPlaythrough.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Database.resx">
       <DependentUpon>Database.cs</DependentUpon>
     </EmbeddedResource>

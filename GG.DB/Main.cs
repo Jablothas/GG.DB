@@ -18,6 +18,7 @@ namespace GoodGameDB
         public const string ScoreBackground_Yellow = @"img/score/score_background_yellow.png";
         public const string ScoreBackground_Orange = @"img/score/score_background_orange.png";
         public const string ScoreBackground_Red = @"img/score/score_background_red.png";
+        public const string ScoreBackground_Gray = @"img/score/score_background_gray.png";
         public const string Medal_Gold = @"img/score/medal_gold.png";
         public const string Medal_Silver = @"img/score/medal_silver.png";
         public const string Medal_Bronze = @"img/score/medal_bronze.png";
@@ -51,7 +52,7 @@ namespace GoodGameDB
             AppSettings.Read();
             OpenChildForm(new Database());
             this.Icon = Properties.Resources.GGDB_Icon_w;
-            Label_Application_Version.Text = "0.7.9";
+            Label_Application_Version.Text = "0.8.1";
         }
 
         // --------------------------------------------------------------------------------------|

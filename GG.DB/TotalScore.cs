@@ -33,13 +33,24 @@ namespace GoodGameDB
             {
                 PicBox.Image = Image.FromFile(Main.ScoreBackground_Red);
             }
+            if (total_score == 0)
+            {
+                PicBox.Image = Image.FromFile(Main.ScoreBackground_Gray);
+            }
             PicBox.Location = new Point(xPos, yPos);
             PicBox.SizeMode = PictureBoxSizeMode.Zoom;
             PicBox.Size = new Size(50, 22);
             panel.Controls.Add(PicBox);
 
             Label Label_TotalScore = new Label();
-            Label_TotalScore.Text = "" + total_score;
+            if (total_score == 0)
+            {
+                Label_TotalScore.Text = "-";
+            }
+            else
+            {
+                Label_TotalScore.Text = "" + total_score;
+            }
             Label_TotalScore.ForeColor = Color.FromArgb(32, 33, 36);
             Label_TotalScore.BackColor = Color.Transparent;
             Label_TotalScore.Size = new Size(36, 19);

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Input));
             this.Input_Header = new System.Windows.Forms.Panel();
+            this.Label_EditMode = new System.Windows.Forms.Label();
             this.Label_Title = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PicBox_Input_Close = new System.Windows.Forms.PictureBox();
@@ -42,7 +43,6 @@
             this.DateBox_Month = new System.Windows.Forms.ComboBox();
             this.DateBox_Year = new System.Windows.Forms.ComboBox();
             this.Panel_Input_Form = new System.Windows.Forms.Panel();
-            this.Label_EditMode = new System.Windows.Forms.Label();
             this.PicBox_Additional_Score10 = new System.Windows.Forms.PictureBox();
             this.PicBox_Additional_Score9 = new System.Windows.Forms.PictureBox();
             this.PicBox_Additional_Score8 = new System.Windows.Forms.PictureBox();
@@ -178,6 +178,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TextBox_Note = new System.Windows.Forms.TextBox();
             this.Input_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PicBox_Input_Close)).BeginInit();
@@ -288,6 +290,7 @@
             // Input_Header
             // 
             this.Input_Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Input_Header.Controls.Add(this.Label_EditMode);
             this.Input_Header.Controls.Add(this.Label_Title);
             this.Input_Header.Controls.Add(this.pictureBox1);
             this.Input_Header.Controls.Add(this.PicBox_Input_Close);
@@ -298,6 +301,17 @@
             this.Input_Header.Size = new System.Drawing.Size(532, 37);
             this.Input_Header.TabIndex = 0;
             this.Input_Header.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Input_Header_MouseMove_1);
+            // 
+            // Label_EditMode
+            // 
+            this.Label_EditMode.AutoSize = true;
+            this.Label_EditMode.ForeColor = System.Drawing.Color.DarkOrange;
+            this.Label_EditMode.Location = new System.Drawing.Point(110, 10);
+            this.Label_EditMode.Name = "Label_EditMode";
+            this.Label_EditMode.Size = new System.Drawing.Size(86, 16);
+            this.Label_EditMode.TabIndex = 225;
+            this.Label_EditMode.Text = "(Edit-Mode)";
+            this.Label_EditMode.Visible = false;
             // 
             // Label_Title
             // 
@@ -312,7 +326,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(24, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -334,7 +348,7 @@
             // 
             this.TextBox_Game.Location = new System.Drawing.Point(10, 67);
             this.TextBox_Game.Name = "TextBox_Game";
-            this.TextBox_Game.Size = new System.Drawing.Size(513, 23);
+            this.TextBox_Game.Size = new System.Drawing.Size(227, 23);
             this.TextBox_Game.TabIndex = 1;
             // 
             // label2
@@ -376,7 +390,7 @@
             this.TextBox_Loc.Location = new System.Drawing.Point(10, 133);
             this.TextBox_Loc.Name = "TextBox_Loc";
             this.TextBox_Loc.Size = new System.Drawing.Size(227, 24);
-            this.TextBox_Loc.TabIndex = 9;
+            this.TextBox_Loc.TabIndex = 2;
             // 
             // label4
             // 
@@ -426,7 +440,7 @@
             this.DateBox_Day.Location = new System.Drawing.Point(250, 132);
             this.DateBox_Day.Name = "DateBox_Day";
             this.DateBox_Day.Size = new System.Drawing.Size(70, 24);
-            this.DateBox_Day.TabIndex = 11;
+            this.DateBox_Day.TabIndex = 3;
             // 
             // DateBox_Month
             // 
@@ -447,7 +461,7 @@
             this.DateBox_Month.Location = new System.Drawing.Point(326, 132);
             this.DateBox_Month.Name = "DateBox_Month";
             this.DateBox_Month.Size = new System.Drawing.Size(70, 24);
-            this.DateBox_Month.TabIndex = 12;
+            this.DateBox_Month.TabIndex = 4;
             // 
             // DateBox_Year
             // 
@@ -497,11 +511,12 @@
             this.DateBox_Year.Location = new System.Drawing.Point(403, 132);
             this.DateBox_Year.Name = "DateBox_Year";
             this.DateBox_Year.Size = new System.Drawing.Size(117, 24);
-            this.DateBox_Year.TabIndex = 13;
+            this.DateBox_Year.TabIndex = 5;
             // 
             // Panel_Input_Form
             // 
-            this.Panel_Input_Form.Controls.Add(this.Label_EditMode);
+            this.Panel_Input_Form.Controls.Add(this.label1);
+            this.Panel_Input_Form.Controls.Add(this.TextBox_Note);
             this.Panel_Input_Form.Controls.Add(this.PicBox_Additional_Score10);
             this.Panel_Input_Form.Controls.Add(this.PicBox_Additional_Score9);
             this.Panel_Input_Form.Controls.Add(this.PicBox_Additional_Score8);
@@ -648,19 +663,8 @@
             this.Panel_Input_Form.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Input_Form.Location = new System.Drawing.Point(0, 37);
             this.Panel_Input_Form.Name = "Panel_Input_Form";
-            this.Panel_Input_Form.Size = new System.Drawing.Size(532, 814);
+            this.Panel_Input_Form.Size = new System.Drawing.Size(532, 821);
             this.Panel_Input_Form.TabIndex = 14;
-            // 
-            // Label_EditMode
-            // 
-            this.Label_EditMode.AutoSize = true;
-            this.Label_EditMode.ForeColor = System.Drawing.Color.DarkOrange;
-            this.Label_EditMode.Location = new System.Drawing.Point(137, 12);
-            this.Label_EditMode.Name = "Label_EditMode";
-            this.Label_EditMode.Size = new System.Drawing.Size(74, 16);
-            this.Label_EditMode.TabIndex = 225;
-            this.Label_EditMode.Text = "Edit-Mode";
-            this.Label_EditMode.Visible = false;
             // 
             // PicBox_Additional_Score10
             // 
@@ -1481,7 +1485,7 @@
             this.Btn_Reset.Location = new System.Drawing.Point(123, 766);
             this.Btn_Reset.Name = "Btn_Reset";
             this.Btn_Reset.Size = new System.Drawing.Size(89, 36);
-            this.Btn_Reset.TabIndex = 65;
+            this.Btn_Reset.TabIndex = 16;
             this.Btn_Reset.Text = "  Reset";
             this.Btn_Reset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_Reset.UseVisualStyleBackColor = false;
@@ -1511,7 +1515,7 @@
             // 
             this.Panel_Border_Bottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Panel_Border_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Panel_Border_Bottom.Location = new System.Drawing.Point(3, 811);
+            this.Panel_Border_Bottom.Location = new System.Drawing.Point(3, 818);
             this.Panel_Border_Bottom.Name = "Panel_Border_Bottom";
             this.Panel_Border_Bottom.Size = new System.Drawing.Size(526, 3);
             this.Panel_Border_Bottom.TabIndex = 63;
@@ -1532,7 +1536,7 @@
             this.Panel_Border_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.Panel_Border_Left.Location = new System.Drawing.Point(0, 0);
             this.Panel_Border_Left.Name = "Panel_Border_Left";
-            this.Panel_Border_Left.Size = new System.Drawing.Size(3, 814);
+            this.Panel_Border_Left.Size = new System.Drawing.Size(3, 821);
             this.Panel_Border_Left.TabIndex = 63;
             // 
             // PicBox_Gameplay_Score6
@@ -1551,7 +1555,7 @@
             this.Panel_Border_Right.Dock = System.Windows.Forms.DockStyle.Right;
             this.Panel_Border_Right.Location = new System.Drawing.Point(529, 0);
             this.Panel_Border_Right.Name = "Panel_Border_Right";
-            this.Panel_Border_Right.Size = new System.Drawing.Size(3, 814);
+            this.Panel_Border_Right.Size = new System.Drawing.Size(3, 821);
             this.Panel_Border_Right.TabIndex = 62;
             // 
             // PicBox_Gameplay_Score5
@@ -1573,7 +1577,7 @@
             this.Btn_Save.Location = new System.Drawing.Point(18, 766);
             this.Btn_Save.Name = "Btn_Save";
             this.Btn_Save.Size = new System.Drawing.Size(89, 36);
-            this.Btn_Save.TabIndex = 61;
+            this.Btn_Save.TabIndex = 15;
             this.Btn_Save.Text = "  Save";
             this.Btn_Save.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_Save.UseVisualStyleBackColor = false;
@@ -1648,7 +1652,7 @@
             0});
             this.Numeric_Overall.Name = "Numeric_Overall";
             this.Numeric_Overall.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Overall.TabIndex = 56;
+            this.Numeric_Overall.TabIndex = 14;
             this.Numeric_Overall.Value = new decimal(new int[] {
             1,
             0,
@@ -1747,7 +1751,7 @@
             0});
             this.Numeric_Balance.Name = "Numeric_Balance";
             this.Numeric_Balance.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Balance.TabIndex = 47;
+            this.Numeric_Balance.TabIndex = 13;
             this.Numeric_Balance.Value = new decimal(new int[] {
             1,
             0,
@@ -1793,7 +1797,7 @@
             0});
             this.Numeric_Pacing.Name = "Numeric_Pacing";
             this.Numeric_Pacing.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Pacing.TabIndex = 44;
+            this.Numeric_Pacing.TabIndex = 12;
             this.Numeric_Pacing.Value = new decimal(new int[] {
             1,
             0,
@@ -1829,7 +1833,7 @@
             0});
             this.Numeric_Content.Name = "Numeric_Content";
             this.Numeric_Content.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Content.TabIndex = 42;
+            this.Numeric_Content.TabIndex = 11;
             this.Numeric_Content.Value = new decimal(new int[] {
             1,
             0,
@@ -1907,7 +1911,7 @@
             0});
             this.Numeric_Sound.Name = "Numeric_Sound";
             this.Numeric_Sound.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Sound.TabIndex = 36;
+            this.Numeric_Sound.TabIndex = 10;
             this.Numeric_Sound.Value = new decimal(new int[] {
             1,
             0,
@@ -1943,7 +1947,7 @@
             0});
             this.Numeric_Quality.Name = "Numeric_Quality";
             this.Numeric_Quality.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Quality.TabIndex = 34;
+            this.Numeric_Quality.TabIndex = 9;
             this.Numeric_Quality.Value = new decimal(new int[] {
             1,
             0,
@@ -2032,7 +2036,7 @@
             0});
             this.Numeric_Narrative.Name = "Numeric_Narrative";
             this.Numeric_Narrative.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Narrative.TabIndex = 27;
+            this.Numeric_Narrative.TabIndex = 8;
             this.Numeric_Narrative.Value = new decimal(new int[] {
             1,
             0,
@@ -2078,7 +2082,7 @@
             0});
             this.Numeric_Presentation.Name = "Numeric_Presentation";
             this.Numeric_Presentation.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Presentation.TabIndex = 22;
+            this.Numeric_Presentation.TabIndex = 7;
             this.Numeric_Presentation.Value = new decimal(new int[] {
             1,
             0,
@@ -2114,7 +2118,7 @@
             0});
             this.Numeric_Gameplay.Name = "Numeric_Gameplay";
             this.Numeric_Gameplay.Size = new System.Drawing.Size(33, 19);
-            this.Numeric_Gameplay.TabIndex = 20;
+            this.Numeric_Gameplay.TabIndex = 6;
             this.Numeric_Gameplay.Value = new decimal(new int[] {
             1,
             0,
@@ -2172,12 +2176,29 @@
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(249, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 16);
+            this.label1.TabIndex = 226;
+            this.label1.Text = "Note";
+            // 
+            // TextBox_Note
+            // 
+            this.TextBox_Note.Location = new System.Drawing.Point(250, 67);
+            this.TextBox_Note.Name = "TextBox_Note";
+            this.TextBox_Note.Size = new System.Drawing.Size(270, 23);
+            this.TextBox_Note.TabIndex = 225;
+            // 
             // Input
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(36)))));
-            this.ClientSize = new System.Drawing.Size(532, 851);
+            this.ClientSize = new System.Drawing.Size(532, 858);
             this.Controls.Add(this.Panel_Input_Form);
             this.Controls.Add(this.Input_Header);
             this.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2448,5 +2469,7 @@
         private System.Windows.Forms.PictureBox PicBox_Content_Score2;
         private System.Windows.Forms.PictureBox PicBox_Content_Score1;
         private System.Windows.Forms.Label Label_EditMode;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TextBox_Note;
     }
 }

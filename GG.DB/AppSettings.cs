@@ -25,6 +25,14 @@ namespace GoodGameDB
                     {
                         Main.DarkMode = true;
                     }
+                    if (line.Contains("ShowReplays=false"))
+                    {
+                        Database.ShowReplays = false;
+                    }
+                    if (line.Contains("ShowReplays=true"))
+                    {
+                        Database.ShowReplays = true;
+                    }
                 }
             }
         }

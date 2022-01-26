@@ -16,7 +16,7 @@ namespace GoodGameDB
     public partial class Input : Form
     {
         public static bool EditMode;
-        public static string EditItem = "";
+        public static int EditID;
 
         public SQLiteConnection sql_connect;
         public int PlaythroughCount;
@@ -39,13 +39,23 @@ namespace GoodGameDB
         public Input()
         {
             InitializeComponent();
-            DateBox_Year.Text = "" + DateTime.Now.Year;
-            DateBox_Year.DropDownStyle = ComboBoxStyle.DropDownList;
-            DateBox_Month.Text = "";
-            DateBox_Month.DropDownStyle = ComboBoxStyle.DropDownList;
-            DateBox_Day.Text = "";
-            DateBox_Day.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            // Generate current time and split by day/month/year for textboxes
+            // --------------------------------------------------------------------------------------|
+            string temp = DateTime.Now.ToShortDateString();
+            string[] temp_split = temp.Split('.');
+
+            // Fill current date in textboxes
+            DateBox_Year.Text = temp_split[2];
+            DateBox_Year.DropDownStyle = ComboBoxStyle.DropDownList;
+            DateBox_Month.Text = temp_split[1];
+            DateBox_Month.DropDownStyle = ComboBoxStyle.DropDownList;
+            DateBox_Day.Text = temp_split[0];
+            DateBox_Day.DropDownStyle = ComboBoxStyle.DropDownList;
+            // --------------------------------------------------------------------------------------|
+
+            // This part triggers if the form will be open via edit button in database.cs
+            // --------------------------------------------------------------------------------------|
             if (EditMode == true)
             {
                 //Label_Title.Text = "Edit Mode";
@@ -69,7 +79,7 @@ namespace GoodGameDB
 
                 foreach (DataRow entry in datatable.Rows)
                 {
-                    if (Convert.ToString(entry["game_title"]) == EditItem)
+                    if (Convert.ToInt32(entry["id"]) == EditID)
                     {
                         string[] DateTimeSplit = Convert.ToString(entry["date"]).Split('.', ' ');
 
@@ -89,9 +99,10 @@ namespace GoodGameDB
                         Numeric_Balance.Value = Convert.ToDecimal(entry["score_balance"]);
                         Numeric_Overall.Value = Convert.ToDecimal(entry["score_overall"]);
                         PlaythroughCount = Convert.ToInt32(entry["finish_counter"]);
-                        EditItem = Convert.ToString(entry["game_title"]);
+                        EditID = Convert.ToInt32(entry["id"]);
                     }
                 }
+                // --------------------------------------------------------------------------------------|
             }
         }
         private void Btn_Save_Click(object sender, EventArgs e)
@@ -170,9 +181,9 @@ namespace GoodGameDB
                     SQLiteConnection sql_connect;
                     sql_connect = new SQLiteConnection("Data source = " + Main.SQLink);
                     sql_connect.Open();
-                    string Query = "INSERT INTO games(game_title, date, location, finish_counter, " +
+                    string Query = "INSERT INTO games(game_title, comment, date, location, replay, finish_counter, " +
                                     " score_gameplay, score_presentation, score_overall, score_quality, score_sound, score_content, score_narrative, score_pacing, score_balance, score_total) " +
-                                    "VALUES ('" + TextBox_Game.Text + "', '" + Date_Complete + "', '" + TextBox_Loc.Text + "','1', '" +
+                                    "VALUES ('" + TextBox_Game.Text + "', '" + TextBox_Note.Text + "', '" + Date_Complete + "', '" + TextBox_Loc.Text + "','n', '1', '" +
                                             Numeric_Gameplay.Value + "', '" + Numeric_Presentation.Value + "', '" + Numeric_Overall.Value + "', '" + Numeric_Quality.Value + "', '" + Numeric_Sound.Value + "', '" +
                                             Numeric_Content.Value + "', '" + Numeric_Narrative.Value + "', '" + Numeric_Pacing.Value + "', '" + Numeric_Balance.Value + "', '" +
                                             Numeric_Total + "')";
@@ -207,6 +218,7 @@ namespace GoodGameDB
                                "game_title = '" + TextBox_Game.Text + "', " +
                                "location = '" + TextBox_Loc.Text + "', " +
                                "date = '" + Date_Complete + "', " +
+                               "comment = '" + TextBox_Note.Text + "', " +
                                "score_gameplay = '" + Numeric_Gameplay.Value + "', " +
                                "score_presentation = '" + Numeric_Presentation.Value + "', " +
                                "score_narrative = '" + Numeric_Narrative.Value + "', " +
@@ -218,7 +230,7 @@ namespace GoodGameDB
                                "score_overall = '" + Numeric_Overall.Value + "', " +
                                "score_total = '" + Numeric_Total + "', " +
                                "finish_counter = '" + PlaythroughCount + "' " +
-                               "WHERE game_title = '" + EditItem + "'";
+                               "WHERE id = '" + EditID + "'";
 
                 SQLiteCommand InsertSQL = new SQLiteCommand(Query, sql_connect);
                 InsertSQL.ExecuteNonQuery();

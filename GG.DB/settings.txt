@@ -1,2 +1,3 @@
 ﻿DarkMode=true
 AutoLogin=true
+ShowReplays=false
