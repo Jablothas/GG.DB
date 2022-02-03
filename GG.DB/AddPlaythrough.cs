@@ -66,18 +66,19 @@ namespace GoodGameDB
             Lbl_Confirm.Visible = true;
         }
 
-        private void Input_Header_MouseMove_1(object sender, MouseEventArgs e)
+
+        private void PicBox_Input_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Playthrough_Header_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void PicBox_Input_Close_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

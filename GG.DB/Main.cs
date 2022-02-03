@@ -52,7 +52,7 @@ namespace GoodGameDB
             AppSettings.Read();
             OpenChildForm(new Database());
             this.Icon = Properties.Resources.GGDB_Icon_w;
-            Label_Application_Version.Text = "0.8.1";
+            Label_Application_Version.Text = "0.9.2";
         }
 
         // --------------------------------------------------------------------------------------|

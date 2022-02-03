@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Database));
             this.Panel_Database_Header = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CheckReplays = new System.Windows.Forms.CheckBox();
             this.Btn_Reload = new System.Windows.Forms.PictureBox();
             this.Btn_Numbers = new System.Windows.Forms.Button();
             this.Btn_Input = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.Panel_Database_Header_Splitter = new System.Windows.Forms.Panel();
             this.Panel_Database = new System.Windows.Forms.Panel();
-            this.CheckReplays = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.Panel_Database_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Reload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,6 +75,36 @@
             this.Panel_Database_Header.Size = new System.Drawing.Size(1200, 93);
             this.Panel_Database_Header.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(390, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 16);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "refresh";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(245, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 16);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "include replays";
+            // 
+            // CheckReplays
+            // 
+            this.CheckReplays.AutoSize = true;
+            this.CheckReplays.Location = new System.Drawing.Point(224, 40);
+            this.CheckReplays.Name = "CheckReplays";
+            this.CheckReplays.Size = new System.Drawing.Size(15, 14);
+            this.CheckReplays.TabIndex = 17;
+            this.CheckReplays.UseVisualStyleBackColor = true;
+            this.CheckReplays.CheckedChanged += new System.EventHandler(this.CheckReplays_CheckedChanged);
+            // 
             // Btn_Reload
             // 
             this.Btn_Reload.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Reload.Image")));
@@ -101,6 +131,7 @@
             this.Btn_Numbers.Text = "Stats";
             this.Btn_Numbers.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.Btn_Numbers.UseVisualStyleBackColor = false;
+            this.Btn_Numbers.Click += new System.EventHandler(this.Btn_Numbers_Click);
             // 
             // Btn_Input
             // 
@@ -250,36 +281,6 @@
             this.Panel_Database.Name = "Panel_Database";
             this.Panel_Database.Size = new System.Drawing.Size(1200, 752);
             this.Panel_Database.TabIndex = 2;
-            // 
-            // CheckReplays
-            // 
-            this.CheckReplays.AutoSize = true;
-            this.CheckReplays.Location = new System.Drawing.Point(224, 40);
-            this.CheckReplays.Name = "CheckReplays";
-            this.CheckReplays.Size = new System.Drawing.Size(15, 14);
-            this.CheckReplays.TabIndex = 17;
-            this.CheckReplays.UseVisualStyleBackColor = true;
-            this.CheckReplays.CheckedChanged += new System.EventHandler(this.CheckReplays_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(245, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 16);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "include replays";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(390, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 16);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "refresh";
             // 
             // Database
             // 

@@ -268,7 +268,7 @@ namespace GoodGameDB
                     if (ReplayStatus == "y")
                     {
                         Label ReplayInfo = new Label();
-                        ReplayInfo.Text = "This is a replay!\nSearch for the primary entry to see score";
+                        ReplayInfo.Text = "Replay";
                         ReplayInfo.Location = new Point(112, 50);
                         ReplayInfo.Size = new Size(300, 100);
                         ReplayInfo.ForeColor = Color.Gray;
@@ -366,6 +366,11 @@ namespace GoodGameDB
 
             SQLiteCommand InsertSQL = new SQLiteCommand(Query, sql_connect);
             InsertSQL.ExecuteNonQuery();
+
+            string Query2 = "UPDATE games SET finish_counter = (finish_counter - 1) WHERE game_title  = '" + CurrentName + "'";
+            SQLiteCommand InsertSQL2 = new SQLiteCommand(Query2, sql_connect);
+            InsertSQL2.ExecuteNonQuery();
+            sql_connect.Close();
             CleanDB();
         }
 
@@ -496,6 +501,11 @@ namespace GoodGameDB
                 ShowReplays = true;
                 CleanDB();
             }
+        }
+
+        private void Btn_Numbers_Click(object sender, EventArgs e)
+        {
+            new Stats().Show();
         }
     }
 }

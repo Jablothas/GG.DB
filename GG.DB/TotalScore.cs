@@ -45,7 +45,7 @@ namespace GoodGameDB
             Label Label_TotalScore = new Label();
             if (total_score == 0)
             {
-                Label_TotalScore.Text = "-";
+                Label_TotalScore.Text = "R";
             }
             else
             {
