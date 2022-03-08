@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Database));
             this.Panel_Database_Header = new System.Windows.Forms.Panel();
+            this.Btn_Settings = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CheckReplays = new System.Windows.Forms.CheckBox();
@@ -46,14 +47,21 @@
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.Panel_Database_Header_Splitter = new System.Windows.Forms.Panel();
             this.Panel_Database = new System.Windows.Forms.Panel();
+            this.Panel_Delete_Confirm = new System.Windows.Forms.Panel();
+            this.Label_Delete_Confirm = new System.Windows.Forms.Label();
+            this.Btn_Delete_Confirm = new System.Windows.Forms.Button();
+            this.Btn_Delete_No = new System.Windows.Forms.Button();
             this.Panel_Database_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Reload)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Panel_Database.SuspendLayout();
+            this.Panel_Delete_Confirm.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_Database_Header
             // 
             this.Panel_Database_Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(36)))));
+            this.Panel_Database_Header.Controls.Add(this.Btn_Settings);
             this.Panel_Database_Header.Controls.Add(this.label2);
             this.Panel_Database_Header.Controls.Add(this.label1);
             this.Panel_Database_Header.Controls.Add(this.CheckReplays);
@@ -74,6 +82,23 @@
             this.Panel_Database_Header.Name = "Panel_Database_Header";
             this.Panel_Database_Header.Size = new System.Drawing.Size(1200, 93);
             this.Panel_Database_Header.TabIndex = 1;
+            // 
+            // Btn_Settings
+            // 
+            this.Btn_Settings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(36)))));
+            this.Btn_Settings.FlatAppearance.BorderSize = 0;
+            this.Btn_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Settings.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Settings.ForeColor = System.Drawing.Color.White;
+            this.Btn_Settings.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Settings.Image")));
+            this.Btn_Settings.Location = new System.Drawing.Point(1085, 7);
+            this.Btn_Settings.Name = "Btn_Settings";
+            this.Btn_Settings.Size = new System.Drawing.Size(103, 40);
+            this.Btn_Settings.TabIndex = 20;
+            this.Btn_Settings.Text = "Settings";
+            this.Btn_Settings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.Btn_Settings.UseVisualStyleBackColor = false;
+            this.Btn_Settings.Click += new System.EventHandler(this.Btn_Settings_Click);
             // 
             // label2
             // 
@@ -124,7 +149,7 @@
             this.Btn_Numbers.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Numbers.ForeColor = System.Drawing.Color.White;
             this.Btn_Numbers.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Numbers.Image")));
-            this.Btn_Numbers.Location = new System.Drawing.Point(1002, 7);
+            this.Btn_Numbers.Location = new System.Drawing.Point(897, 7);
             this.Btn_Numbers.Name = "Btn_Numbers";
             this.Btn_Numbers.Size = new System.Drawing.Size(90, 40);
             this.Btn_Numbers.TabIndex = 15;
@@ -141,7 +166,7 @@
             this.Btn_Input.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Input.ForeColor = System.Drawing.Color.White;
             this.Btn_Input.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Input.Image")));
-            this.Btn_Input.Location = new System.Drawing.Point(1098, 7);
+            this.Btn_Input.Location = new System.Drawing.Point(993, 7);
             this.Btn_Input.Name = "Btn_Input";
             this.Btn_Input.Size = new System.Drawing.Size(90, 40);
             this.Btn_Input.TabIndex = 14;
@@ -276,11 +301,56 @@
             // Panel_Database
             // 
             this.Panel_Database.AutoScroll = true;
+            this.Panel_Database.Controls.Add(this.Panel_Delete_Confirm);
             this.Panel_Database.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Panel_Database.Location = new System.Drawing.Point(0, 93);
             this.Panel_Database.Name = "Panel_Database";
             this.Panel_Database.Size = new System.Drawing.Size(1200, 752);
             this.Panel_Database.TabIndex = 2;
+            // 
+            // Panel_Delete_Confirm
+            // 
+            this.Panel_Delete_Confirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Panel_Delete_Confirm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel_Delete_Confirm.Controls.Add(this.Btn_Delete_No);
+            this.Panel_Delete_Confirm.Controls.Add(this.Btn_Delete_Confirm);
+            this.Panel_Delete_Confirm.Controls.Add(this.Label_Delete_Confirm);
+            this.Panel_Delete_Confirm.Location = new System.Drawing.Point(886, 6);
+            this.Panel_Delete_Confirm.Name = "Panel_Delete_Confirm";
+            this.Panel_Delete_Confirm.Size = new System.Drawing.Size(302, 89);
+            this.Panel_Delete_Confirm.TabIndex = 0;
+            this.Panel_Delete_Confirm.Visible = false;
+            // 
+            // Label_Delete_Confirm
+            // 
+            this.Label_Delete_Confirm.AutoSize = true;
+            this.Label_Delete_Confirm.Location = new System.Drawing.Point(13, 11);
+            this.Label_Delete_Confirm.Name = "Label_Delete_Confirm";
+            this.Label_Delete_Confirm.Size = new System.Drawing.Size(265, 16);
+            this.Label_Delete_Confirm.TabIndex = 0;
+            this.Label_Delete_Confirm.Text = "Do you really want to delete this item?";
+            // 
+            // Btn_Delete_Confirm
+            // 
+            this.Btn_Delete_Confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Delete_Confirm.Location = new System.Drawing.Point(31, 45);
+            this.Btn_Delete_Confirm.Name = "Btn_Delete_Confirm";
+            this.Btn_Delete_Confirm.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Delete_Confirm.TabIndex = 1;
+            this.Btn_Delete_Confirm.Text = "Yes";
+            this.Btn_Delete_Confirm.UseVisualStyleBackColor = true;
+            this.Btn_Delete_Confirm.Click += new System.EventHandler(this.Btn_Delete_Confirm_Click);
+            // 
+            // Btn_Delete_No
+            // 
+            this.Btn_Delete_No.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Delete_No.Location = new System.Drawing.Point(112, 45);
+            this.Btn_Delete_No.Name = "Btn_Delete_No";
+            this.Btn_Delete_No.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Delete_No.TabIndex = 2;
+            this.Btn_Delete_No.Text = "No";
+            this.Btn_Delete_No.UseVisualStyleBackColor = true;
+            this.Btn_Delete_No.Click += new System.EventHandler(this.Btn_Delete_No_Click);
             // 
             // Database
             // 
@@ -300,6 +370,9 @@
             this.Panel_Database_Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Btn_Reload)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Panel_Database.ResumeLayout(false);
+            this.Panel_Delete_Confirm.ResumeLayout(false);
+            this.Panel_Delete_Confirm.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -322,5 +395,10 @@
         private System.Windows.Forms.CheckBox CheckReplays;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Btn_Settings;
+        private System.Windows.Forms.Panel Panel_Delete_Confirm;
+        private System.Windows.Forms.Button Btn_Delete_No;
+        private System.Windows.Forms.Button Btn_Delete_Confirm;
+        private System.Windows.Forms.Label Label_Delete_Confirm;
     }
 }

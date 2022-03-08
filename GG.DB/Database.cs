@@ -357,8 +357,19 @@ namespace GoodGameDB
             Input.EditID = CurrentID;
             new Input().Show();
         }
-        
+
         public void Delete(object sender, EventArgs e)
+        {
+            Panel_Delete_Confirm.Visible = true;
+            Panel_Delete_Confirm.BringToFront();
+        }
+
+        private void Btn_Delete_No_Click(object sender, EventArgs e)
+        {
+            Panel_Delete_Confirm.Visible = false;
+        }
+
+        private void Btn_Delete_Confirm_Click(object sender, EventArgs e)
         {
             sql_connect = new SQLiteConnection("Data source = " + Main.SQLink);
             sql_connect.Open();
@@ -371,7 +382,9 @@ namespace GoodGameDB
             SQLiteCommand InsertSQL2 = new SQLiteCommand(Query2, sql_connect);
             InsertSQL2.ExecuteNonQuery();
             sql_connect.Close();
+            Panel_Delete_Confirm.Visible = false;
             CleanDB();
+
         }
 
         private void Btn_Score_Click(object sender, EventArgs e)
@@ -506,6 +519,11 @@ namespace GoodGameDB
         private void Btn_Numbers_Click(object sender, EventArgs e)
         {
             new Stats().Show();
+        }
+
+        private void Btn_Settings_Click(object sender, EventArgs e)
+        {
+            new Settings().Show();
         }
     }
 }
